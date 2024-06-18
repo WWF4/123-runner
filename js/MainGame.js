@@ -54,7 +54,7 @@ function resetGame() {
     canSpawnObjects = true;
     levelIsChanging = 0;
     lastUpdated = Date.now();
-    floorIsLava = document.getElementById("floorIsLava").value === "true";
+    floorIsLava = document.getElementById("FloorIsLava").value === "true";
 }
 
 function startGame() {
@@ -63,8 +63,14 @@ function startGame() {
 
     resetGame();
 
-    document.getElementById("floorIsLava").disabled = true;
-
+    document.getElementById("FloorIsLava").disabled = true;
+    document.getElementById("FloorIsLava").style.visibility="hidden";
+    document.getElementById("start").style.visibility="hidden";
+    document.getElementById("einstellungen").style.visibility="hidden";
+    document.getElementById("modus").style.visibility="hidden";
+    document.getElementById("easy").style.visibility="hidden";
+    document.getElementById("normal").style.visibility="hidden";
+    document.getElementById("hard").style.visibility="hidden";
     gameArea.start();
 
     player = new PlayerComponent(settings.playerSize, settings.playerSize, ResourceManager.Ghost_Normal, 235,  (floorIsLava ? (groundY - settings.playerSize) *  0.5 : groundY - settings.playerSize), 1, "image");
@@ -81,7 +87,16 @@ function startGame() {
 }
 
 function stopGame() {
-    document.getElementById("floorIsLava").disabled = false;
+    document.getElementById("FloorIsLava").disabled = false;
+    document.getElementById("FloorIsLava").style.visibility="visible";
+    document.getElementById("start").style.visibility="visible";
+    document.getElementById("einstellungen").style.visibility="visible";
+    document.getElementById("modus").style.visibility="visible";
+    document.getElementById("start").style.visibility="visible";
+    document.getElementById("easy").style.visibility="visible";
+    document.getElementById("normal").style.visibility="visible";
+    document.getElementById("hard").style.visibility="visible";
+    gameArea.clear();
     clearInterval(gameProcess);
     gameIsRunning = false;
 }
@@ -284,11 +299,11 @@ function updateGame() {
         }
     }
 
-    document.getElementById("score").textContent = "Score: " + score;
-    document.getElementById("speed").textContent = "Speed: " + (Math.round(gameSpeed * 100) / 100).toFixed(2);
-    var shootCooldown = settings.shootCooldown * 1000 - (Date.now() - player.lastShotTime);
-    document.getElementById("shootCooldown").textContent = "Shoot-Cooldown: " + (shootCooldown < 0 ? 0.0 : (shootCooldown / 1000).toFixed(1));
-    document.getElementById("level").textContent = "Level: " + level;
+    //document.getElementById("score").textContent = "Score: " + score;
+    //document.getElementById("speed").textContent = "Speed: " + (Math.round(gameSpeed * 100) / 100).toFixed(2);
+    //var shootCooldown = settings.shootCooldown * 1000 - (Date.now() - player.lastShotTime);
+    //document.getElementById("shootCooldown").textContent = "Shoot-Cooldown: " + (shootCooldown < 0 ? 0.0 : (shootCooldown / 1000).toFixed(1));
+    //document.getElementById("level").textContent = "Level: " + level;
 
     // reset for dt
     lastUpdated = now;

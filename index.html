@@ -18,19 +18,46 @@
         <script src="js/ResourceManager.js"></script>
     </head>
     <body>
-        <button onclick="location.href='./settings.html'">Einstellungen</button> </br>
-        <label>Modus</label>
-        <select id="floorIsLava">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button id="easy" type="button" class="btn btn-primary" onclick="difficulty = 25">easy</button>
+            <button id="normal" type="button" class="btn btn-primary" onclick="difficulty = 50">normal</button>
+            <button id="hard" type="button" class="btn btn-primary" onclick="difficulty = 75">hard</button>
+          </div>
+        <button id="start" onclick="startGame()" text-align = center>Start</button> </br>
+        <label id="modus" text-align = center>Modus</label>
+        <select id="FloorIsLava" text-align = center onchange="floorIsLava = document.getElementById('FloorIsLava').value;">
             <option value="false">Modus: Normal
             <option value="true">Modus: Floor is Lava
         </select> </br>
-        <label id="score">Score: 0</label> </br>
+        <button id="einstellungen" onclick="location.href='./settings.html'" text-align = center>Einstellungen</button> </br>
+        <!-- Button trigger modal
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    How it workes
+  </button> -->
+  
+  <!-- Modal 
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>-->
+  
+        <!--<label id="score">Score: 0</label> </br>
         <label id="speed">Speed: 0</label> </br>
-        <label id="shootCooldown">Shoot-Cooldown: 0</label> </br>
-        <label id="level">Level: 0</label> </br>
 
-        </br>
+        </br>-->
 
-        <button onclick="startGame()">Start</button> </br>
     </body>
 </html>
